@@ -1,7 +1,7 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
 
-// Use the Project URL and Anon Key from your Supabase Dashboard Settings
-export const supabase = createClient(
-  'https://zenflow.jiobase.com', 
-  'sb_publishable_fx1elpMg-2EB2C5Zgk2GXA_RjSnsWbf'
-)
+// Pulling both the URL and Key safely from your environment variables
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
